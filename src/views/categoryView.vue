@@ -71,7 +71,7 @@ const name = ref('')
 const emtyName = ref('');
 const title = ref("Create category")
 const showModal = ref(false)
-const per_page = ref(10);
+const per_page = ref(5);
 const categoryStore = useCategoryStore();
 const modalDelete = ref(false)
 const titleBtn = ref("create");
@@ -116,6 +116,7 @@ const handleCreate = async () => {
             isEdit.value = false
             await categoryStore.fetchCategory(1, per_page.value);
         }
+         await categoryStore.fetchCategory(1, per_page.value);
     }
 
     catch (e) {

@@ -43,7 +43,7 @@
                                         </button>
                                     </div>
 
-                                    <p class="text-center mt-4 mb-0">Don't have an account? <router-link to="/signup"
+                                    <p class="text-center mt-4 mb-0">Don't have an account? <router-link to="/register"
                                             class="text-decoration-none">Sign Up</router-link></p>
                                 </form>
 

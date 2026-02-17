@@ -42,7 +42,7 @@ import api from '@/api/http';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 let articleStore = useArticleStore();
-let per_page = ref(10)
+let per_page = ref(5)
 onMounted(async () => {
   await articleStore.fetchOwnAritcles(1, per_page.value);
 })

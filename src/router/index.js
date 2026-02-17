@@ -7,6 +7,7 @@ import CreateArticle from '@/views/CreateArticle.vue'
 import UpdateArticle from '@/views/UpdateArticle.vue'
 import detailArticle from '@/views/detailArticle.vue'
 import categoryView from '@/views/categoryView.vue'
+import RigisterView from '@/views/RigisterView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -14,43 +15,49 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
-      meta : {require : true}
+      meta: { require: true }
     },
-    
+
     {
       path: '/login',
       name: 'login',
       component: LoginView,
     },
     {
+      path: '/register',
+      name: 'register',
+      component: RigisterView
+    },
+    {
       path: '/article',
       name: 'article',
       component: ArticleView,
-      meta : {require : true}
+      meta: { require: true }
     },
     {
       path: '/article/:id',
       name: 'articledetail',
       component: detailArticle,
-      meta : {require : true
+      meta: {
+        require: true
       }
     },
     {
       path: '/article/create',
       name: 'createArticle',
       component: CreateArticle,
-      meta : {require : true}
+      meta: { require: true }
     },
-     {
+    {
       path: '/article/update/:id',
       name: 'updateArticle',
       component: UpdateArticle,
-      meta : {require : true}
+      meta: { require: true }
     },
     {
-      path:'/category',
-      name:'category',
-      component:categoryView
+      path: '/category',
+      name: 'category',
+      component: categoryView
     }
   ],
 })
@@ -58,8 +65,8 @@ const router = createRouter({
 router.beforeEach((to, from) => {
   let auth = useAuthStore();
 
-  if(!auth.isLoggedIn && to.meta.require){
-    return {name : 'login'}
+  if (!auth.isLoggedIn && to.meta.require) {
+    return { name: 'login' }
   }
 
   return true;
