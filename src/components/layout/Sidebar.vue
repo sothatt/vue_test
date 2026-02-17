@@ -9,11 +9,13 @@
       </div>
 </template>
 <script setup>
-  import { useAuthStore } from '@/stores/auth'
+  import router from '@/router';
+import { useAuthStore } from '@/stores/auth'
 
   let auth = useAuthStore()
 
   async function handleLogout(){
       auth.logout();
+      router.push('/login')
    }
 </script>
